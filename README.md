@@ -7,11 +7,12 @@
 
 ## Estrutura
 index.html: Contém a estrutura HTML do sistema;
-scrip.js: 
+script.js; 
 CSS para estilização do formulário;
 README.md: Este arquivo contém informações sobre o projeto, como usá-lo e sua estrutura.
 
 ## Tecnologias Utilizadas
+
 HTML;
 CSS;
 Javascrip/NodeJs;
@@ -25,6 +26,7 @@ AWS.
 ## Como usar
 
 ## Clonar este repositório:
+
 git clone 
 
 ## Dificuldades
