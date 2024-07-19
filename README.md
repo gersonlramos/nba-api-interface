@@ -1,5 +1,12 @@
 # Avaliação das Sprints 2 e 3 - Programa de Bolsas Compass UOL / AWS - turma JUNHO/2024
 
+# Desenvolvedores: 
+
+Gerson Ramos;
+Iuri Souza;
+Monique da Silva Borges.
+
+
 ***
 
 ## Sistema em JavaScript/NodeJS que produza uma interface para consulta de API pública
