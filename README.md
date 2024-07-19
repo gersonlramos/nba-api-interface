@@ -15,7 +15,7 @@ README.md: Este arquivo contém informações sobre o projeto, como usá-lo e su
 
 HTML;
 CSS;
-Javascrip/NodeJs;
+Javascript/NodeJs;
 Docker;
 AWS.
 
