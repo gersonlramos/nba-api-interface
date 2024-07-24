@@ -1,10 +1,12 @@
 # Avaliação das Sprints 2 e 3 - Programa de Bolsas Compass UOL / AWS - turma JUNHO/2024
 
-# Desenvolvedores: 
+# Projeto NBA API 
 
-Gerson Ramos;
-Iuri Souza;
-Monique da Silva Borges.
+# Desenvolvedores : 
+
+Gerson Ramos ;
+Iuri Souza ;
+Monique da Silva Borges .
 
 
 ***
@@ -34,16 +36,21 @@ AWS.
 
 ## Clonar este repositório:
 
-git clone 
+1. git clone: https://github.com/Compass-pb-aws-2024-JUNHO/sprints-2-3-pb-aws-junho/tree/grupo-5
+2. Instale as dependências:
+   ```bash
+   npm install
 
 ## Dificuldades
-<div style="display: inline_block
+
+
+<div style="display: inline_block"><br>
 https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
 https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white
 https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white
 https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
 https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white
 https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white
-
+</div>
 
  
