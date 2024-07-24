@@ -34,8 +34,7 @@
 
 ### Clonar este Repositório:
 
-```bash
-git clone https://github.com/Compass-pb-aws-2024-JUNHO/sprints-2-3-pb-aws-junho/tree/grupo-5
+1. git clone https://github.com/Compass-pb-aws-2024-JUNHO/sprints-2-3-pb-aws-junho/tree/grupo-5
 cd sprints-2-3-pb-aws-junho
 
 2. Instale as dependências:
