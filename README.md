@@ -43,9 +43,9 @@ cd sprints-2-3-pb-aws-junho
 
 ## Dificuldades
 
-Desafios na configuração do Docker para ambiente de produção;
-Integração contínua com AWS;
-Manipulação de grandes volumes de dados da API da NBA.
+*
+*
+*
 
 <p align="center">
  <img alt="HTML5" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
