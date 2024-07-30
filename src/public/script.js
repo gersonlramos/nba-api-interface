@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
-const nbaRoutes = require('./routes/nbaRoutes');
+const nbaRoutes = require('../routes/nbaRoutes');
 
 app.use('/nba', nbaRoutes);
 
