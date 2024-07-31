@@ -27,7 +27,7 @@ form {
     flex-direction: column;
 }
 
-input[type="text"] {
+form select {
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #cccccc;

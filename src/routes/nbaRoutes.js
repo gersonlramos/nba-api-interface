@@ -16,10 +16,38 @@ router.get('/teams', async (req, res) => {
             .filter(team => team.nbaFranchise)
             .map(team => ({
                 id: team.id,
-                name: team.name
+                name: team.name,
+                city: team.city,
+                nickname: team.nickname,
+                logo: team.logo,
+                leagues: team.leagues
             }));
 
         res.json(teams);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Rota para obter informações de um time específico
+router.get('/teams/:id', async (req, res) => {
+    try {
+      const teamId = req.params.id;
+      const response = await axios.get('https://api-nba-v1.p.rapidapi.com/teams', {
+        headers: {
+                'X-RapidAPI-Key': '925c23d740msh27099c400c23653p18f9b4jsn0ba2e889297d',
+                'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+            }
+        });
+
+        // Encontrar o time específico pelo ID
+        const team = response.data.response.find(team => team.id == teamId);
+
+        if (team) {
+            res.json(team);
+        } else {
+            res.status(404).json({ error: 'Time não encontrado' });
+        }
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

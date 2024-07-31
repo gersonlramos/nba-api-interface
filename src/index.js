@@ -1,38 +1,17 @@
-document.getElementById('nbaForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+const express = require('express');
+const cors = require('cors');
+const app = express();
+const port = 3000;
 
-    const query = document.getElementById('query').value;
-    fetch(`/nba?query=${query}`)
-        .then(response => response.json())
-        .then(data => {
-            const resultsDiv = document.getElementById('results');
-            resultsDiv.innerHTML = '';
+const nbaRoutes = require('./routes/nbaRoutes');
 
-            if (data.error) {
-                resultsDiv.innerHTML = `<p>${data.error}</p>`;
-            } else {
-                data.results.forEach(item => {
-                    resultsDiv.innerHTML += `<p>${item.name}: ${item.value}</p>`;
-                });
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+app.use(cors()); 
+app.use('/nba', nbaRoutes);
+
+app.get('/', (req, res) => {
+    res.send('API da NBA em Node.js');
 });
 
-document.getElementById('listTeams').addEventListener('click', function() {
-    fetch('/nba/teams')
-        .then(response => response.json())
-        .then(data => {
-            const resultsDiv = document.getElementById('results');
-            resultsDiv.innerHTML = '';
-
-            data.forEach(team => {
-                resultsDiv.innerHTML += `<p>${team.name}</p>`;
-            });
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+app.listen(port, () => {
+    console.log(`Servidor rodando em http://localhost:${port}`);
 });
