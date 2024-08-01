@@ -32,9 +32,9 @@ router.get('/teams', async (req, res) => {
 // Rota para obter informações de um time específico
 router.get('/teams/:id', async (req, res) => {
     try {
-      const teamId = req.params.id;
-      const response = await axios.get('https://api-nba-v1.p.rapidapi.com/teams', {
-        headers: {
+        const teamId = req.params.id;
+        const response = await axios.get('https://api-nba-v1.p.rapidapi.com/teams', {
+            headers: {
                 'X-RapidAPI-Key': '925c23d740msh27099c400c23653p18f9b4jsn0ba2e889297d',
                 'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
             }
@@ -48,6 +48,37 @@ router.get('/teams/:id', async (req, res) => {
         } else {
             res.status(404).json({ error: 'Time não encontrado' });
         }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Rota para obter estatísticas de um time específico para um ano
+router.get('/teams/:id/stats', async (req, res) => {
+    try {
+        const teamId = req.params.id;
+        const season = req.query.season;
+        const response = await axios.get(`https://api-nba-v1.p.rapidapi.com/teams/statistics`, {
+            headers: {
+                'X-RapidAPI-Key': '925c23d740msh27099c400c23653p18f9b4jsn0ba2e889297d',
+                'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+            },
+            params: {
+                team: teamId,
+                season: season
+            }
+        });
+
+        // Extrair estatísticas relevantes
+        const stats = {
+            wins: response.data.response.wins,
+            losses: response.data.response.losses,
+            points_per_game: response.data.response.pointsPerGame,
+            rebounds_per_game: response.data.response.reboundsPerGame,
+            assists_per_game: response.data.response.assistsPerGame
+        };
+
+        res.json(stats);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

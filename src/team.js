@@ -28,4 +28,38 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         alert('Nenhum time selecionado');
     }
+    // voltar para a pagina inicial
+    const backButton = document.getElementById('backButton');
+    backButton.addEventListener('click', function () {
+        window.location.href = 'index.html';
+    });
+    // carregar as estatísticas da temporada
+    function LoadSeasonStats(season) {
+        fetch(`http://localhost:3000/nba/teams/${teamId}/stats?season=${season}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(stats => {
+                teamStatsDiv.innerHTML = `
+                    <h3>Estatísticas da Temporada ${season}</h3>
+                    <p>Vitórias: ${stats.wins}</p>
+                    <p>Derrotas: ${stats.losses}</p>
+                    <p>Pontos por Jogo: ${stats.points_per_game}</p>
+                    <p>Rebotes por Jogo: ${stats.rebounds_per_game}</p>
+                    <p>Assistências por Jogo: ${stats.assists_per_game}</p>
+                `;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Erro ao buscar as estatísticas: ' + error.message);
+            });
+    }
+
+    // mudar a temporada 
+    seasonSelect.addEventListener('change', function () {
+        loadTeamStats(seasonSelect.value);
+    });
 });
