@@ -2,6 +2,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -12,6 +13,7 @@
         transform: translateY(-50px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -27,64 +29,63 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     animation: fadeIn 1s ease-in;
 }
 
 .container {
-    width: 80%;
-    max-width: 1200px;
+    width: 90%;
+    max-width: 600px;
     background-color: #2c2c2c;
     padding: 20px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     border-radius: 8px;
+    text-align: center;
     animation: slideIn 1s ease-in-out;
 }
 
-.logo {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
 .logo img {
-    width: 150px;
+    max-width: 100px;
     height: auto;
+    margin-bottom: 20px;
 }
 
 h1 {
-    text-align: center;
     margin-bottom: 20px;
 }
 
-.team-comparison {
+form {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
 }
 
-.team {
-    width: 48%;
-    background-color: #3c3c3c;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.team h2 {
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.stats {
-    list-style: none;
-    padding: 0;
-}
-
-.stats li {
+input,
+select,
+button {
     margin: 10px 0;
     padding: 10px;
-    background-color: #4c4c4c;
-    border-radius: 4px;
-    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#teamInfo img {
+    width: 180px;
+    height: auto;
+    max-height: 180px;
+    display: block;
+    margin: 0 auto 20px;
 }

@@ -1,38 +1,28 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comparação de Times da NBA</title>
+    <title>NBA API Interface</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <div class="logo">
-            <img id="nba_logo" alt="NBA Logo">
+            <img src="imagens/nba_logo.jpg" alt="NBA Logo">
         </div>
-        <h1>Comparação de Times da NBA</h1>
-        <div class="team-comparison">
-            <div class="team" id="team1">
-               <center><input type="text" id="team1Input" placeholder="Time 1"></center>
-                <ul class="stats" id="team1Stats">
-                    <li>Pontos por jogo: 0</li>
-                    <li>Rebotes por jogo: 0</li>
-                    <li>Assistências por jogo: 0</li>
-                    <li>Porcentagem de vitória: 0%</li>
-                </ul>
-            </div>
-            <div class="team" id="team2">
-                <center><input type="text" id="team2Input" placeholder="Time 2"></center>
-                <ul class="stats" id="team2Stats">
-                    <li>Pontos por jogo: 0</li>
-                    <li>Rebotes por jogo: 0</li>
-                    <li>Assistências por jogo: 0</li>
-                    <li>Porcentagem de vitória: 0%</li>
-                </ul>
-            </div>
-        </div>
-       <center> <button onclick="updateStats()">Comparar</button></center>
+        <h1>NBA API Interface</h1>
+        <form id="nbaForm">
+            <select id="teamsComboBox" name="teamId">
+                <option value="">Selecione um time</option>
+            </select>
+            <button type="submit">Consultar</button>
+        </form>
+        <div id="results"></div>
     </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
