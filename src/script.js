@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Função para buscar e preencher os times
   function loadTeams() {
-    fetch('http://localhost:3000/nba/teams')
+    fetch('http://44.211.161.65/nba/teams')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok ' + response.statusText);
