@@ -1,17 +1,13 @@
 {
-  "name": "nba-api-project",
+  "name": "nba-api-app",
   "version": "1.0.0",
+  "description": "API da NBA em Node.js",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "start": "node index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "description": "",
   "dependencies": {
-    "axios": "^1.7.2",
-    "cors": "^2.8.5",
-    "express": "^4.19.2"
+    "express": "^4.17.1",
+    "cors": "^2.8.5"
   }
 }
