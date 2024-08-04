@@ -2,11 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const app = express();
-const port = 3000;
+const port = 80;
 
 const nbaRoutes = require('./routes/nbaRoutes');
 
-app.use(cors()); 
+app.use(cors());
 app.use('/nba', nbaRoutes);
 
 // Servir arquivos estáticos da pasta 'src'
