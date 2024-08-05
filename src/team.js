@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (teamId) {
         // IP da instância EC2 para acessar a API
-        fetch(`${EC2}/nba/teams/${teamId}`)
+        fetch(`${EC2}nba/teams/${teamId}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Função para carregar as estatísticas da temporada
     function loadTeamStats(season) {
-        fetch(`${EC2}/nba/teams/${teamId}/stats?season=${season}`)
+        fetch(`${EC2}nba/teams/${teamId}/stats?season=${season}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function loadTeamPlayers(season) {
-        fetch(`${EC2}/nba/teams/${teamId}/players?season=${season}`)
+        fetch(`${EC2}nba/teams/${teamId}/players?season=${season}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
