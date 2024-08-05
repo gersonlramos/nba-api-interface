@@ -5,10 +5,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const teamStatsDiv = document.getElementById('teamStats');
     const teamInfoDiv = document.getElementById('teamInfo');
     const backButton = document.getElementById('backButton');
+    const localHost = 'http://localhost:3000'
+    const EC2 = 'http://44.211.161.65/'
 
     if (teamId) {
         // IP da instância EC2 para acessar a API
-        fetch(`http://44.211.161.65/nba/teams/${teamId}`)
+        fetch(`${EC2}/nba/teams/${teamId}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
@@ -41,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Função para carregar as estatísticas da temporada
     function loadTeamStats(season) {
-        fetch(`http://44.211.161.65/nba/teams/${teamId}/stats?season=${season}`)
+        fetch(`${EC2}/nba/teams/${teamId}/stats?season=${season}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
@@ -78,8 +80,38 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-    // Adicionar evento para mudar o ano da temporada
+    function loadTeamPlayers(season) {
+        fetch(`${EC2}/nba/teams/${teamId}/players?season=${season}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(players => {
+                playersList.innerHTML = '<h3>Jogadores</h3>';
+                players.forEach(player => {
+                    playersList.innerHTML += `
+                        <div class="player-card">
+                            <p>Nome: ${player.firstname} ${player.lastname}</p>
+                            <p>Nascimento: ${player.birth.date || 'N/A'} (${player.birth.country || 'N/A'})</p>
+                            <p>Altura: ${player.height.meters || 'N/A'}m</p>
+                            <p>Peso: ${player.weight.kilograms || 'N/A'}kg</p>
+                            <p>College: ${player.college || 'N/A'}</p>
+                            <p>Nº da Camisa: ${player.leagues.standard.jersey || 'N/A'}</p>
+                            <p>Posição: ${player.leagues.standard.pos || 'N/A'}</p>
+                            <hr>
+                        </div>
+                    `;
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Erro ao buscar os jogadores: ' + error.message);
+            });
+    }
     seasonSelect.addEventListener('change', function () {
         loadTeamStats(seasonSelect.value);
+        loadTeamPlayers(seasonSelect.value);
     });
 });

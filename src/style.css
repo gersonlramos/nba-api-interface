@@ -28,9 +28,10 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
     animation: fadeIn 1s ease-in;
+    padding: 0 10px;
 }
 
 .container {
@@ -42,6 +43,8 @@ body {
     border-radius: 8px;
     text-align: center;
     animation: slideIn 1s ease-in-out;
+    margin-top: 20px;
+    margin-right: 20px;
 }
 
 .logo img {

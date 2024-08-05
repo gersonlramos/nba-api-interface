@@ -1,13 +1,14 @@
 const express = require('express');
 const axios = require('axios');
 const router = express.Router();
+const API_KEY = 'c9a59059d3mshe4b7a011daa9b47p1be16ajsn585fd2a2a410'
 
 // Rota para obter times
 router.get('/teams', async (req, res) => {
     try {
         const response = await axios.get('https://api-nba-v1.p.rapidapi.com/teams', {
             headers: {
-                'X-RapidAPI-Key': '925c23d740msh27099c400c23653p18f9b4jsn0ba2e889297d',
+                'X-RapidAPI-Key': API_KEY,
                 'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
             }
         });
@@ -35,7 +36,7 @@ router.get('/teams/:id', async (req, res) => {
         const teamId = req.params.id;
         const response = await axios.get('https://api-nba-v1.p.rapidapi.com/teams', {
             headers: {
-                'X-RapidAPI-Key': '925c23d740msh27099c400c23653p18f9b4jsn0ba2e889297d',
+                'X-RapidAPI-Key': API_KEY,
                 'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
             }
         });
@@ -59,7 +60,7 @@ router.get('/teams/:id/stats', async (req, res) => {
         const season = req.query.season;
         const response = await axios.get('https://api-nba-v1.p.rapidapi.com/teams/statistics', {
             headers: {
-                'X-RapidAPI-Key': '925c23d740msh27099c400c23653p18f9b4jsn0ba2e889297d',
+                'X-RapidAPI-Key': API_KEY,
                 'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
             },
             params: {
@@ -105,6 +106,33 @@ router.get('/teams/:id/stats', async (req, res) => {
         res.json(stats);
     } catch (error) {
         res.status(500).json({ error: error.message });
+    }
+});
+
+// Rota para obter os jogadores do time escolhido
+router.get('/teams/:teamId/players', async (req, res) => {
+    const teamId = req.params.teamId;
+    const season = req.query.season;
+
+    const options = {
+        method: 'GET',
+        url: 'https://api-nba-v1.p.rapidapi.com/players',
+        params: {
+            team: teamId,
+            season: season
+        },
+        headers: {
+            'x-rapidapi-key': API_KEY,
+            'x-rapidapi-host': 'api-nba-v1.p.rapidapi.com'
+        }
+    };
+
+    try {
+        const response = await axios.request(options);
+        res.json(response.data.response);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Jogadores não encontrados' });
     }
 });
 
