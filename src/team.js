@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const teamStatsDiv = document.getElementById('teamStats');
     const teamInfoDiv = document.getElementById('teamInfo');
     const backButton = document.getElementById('backButton');
-    const localHost = 'http://localhost:3000'
+    const localHost = 'http://localhost:3000/'
     const EC2 = 'http://44.211.161.65/'
 
     if (teamId) {
