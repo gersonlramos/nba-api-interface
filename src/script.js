@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
   const teamsComboBox = document.getElementById('teamsComboBox');
   const nbaForm = document.getElementById('nbaForm');
+  const localHost = 'http://localhost:3000/'
+  const EC2 = 'http://44.211.161.65/'
 
   // Função para buscar e preencher os times
   function loadTeams() {
-    fetch('http://44.211.161.65/nba/teams')
+    fetch(`${EC2}nba/teams`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok ' + response.statusText);
