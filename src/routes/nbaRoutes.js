@@ -1,7 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const router = express.Router();
-const API_KEY = 'c9a59059d3mshe4b7a011daa9b47p1be16ajsn585fd2a2a410'
+const API_KEY = 'dcf2a96ac2msh3b96103ea1986dbp17cb6bjsn07dc8a095582'
 
 // Rota para obter times
 router.get('/teams', async (req, res) => {
