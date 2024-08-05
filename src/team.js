@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return response.json();
             })
             .then(players => {
-                playersList.innerHTML = '<h3>Jogadores</h3>';
+                playersList.innerHTML = `<h3>Jogadores da Temporada ${season}</h3>`;
                 players.forEach(player => {
                     playersList.innerHTML += `
                         <div class="player-card">
