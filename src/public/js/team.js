@@ -40,12 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Adicionar evento de clique para o botão de voltar
   backButton.addEventListener("click", function () {
-    window.location.href = "index.html";
+    window.location.href = "../index.html";
   });
 
   // Função para carregar as estatísticas da temporada
   function loadTeamStats(season) {
-    fetch(`${localHost}nba/teams/${teamId}/stats?season=${season}`)
+    fetch(`${API_BASE_URL}api/nba/teams/${teamId}/stats?season=${season}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok " + response.statusText);
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function loadTeamPlayers(season) {
-    fetch(`${localHost}nba/teams/${teamId}/players?season=${season}`)
+    fetch(`${API_BASE_URL}api/nba/teams/${teamId}/players?season=${season}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok " + response.statusText);
@@ -217,10 +217,10 @@ function togglePlayerStats(playerId, season) {
 
 // Function to load individual player statistics
 function loadPlayerStats(playerId, season) {
-  const localHost = "http://localhost:3000/";
+  const API_BASE_URL = window.location.origin + "/";
   const statsDiv = document.getElementById(`stats-${playerId}`);
 
-  fetch(`${localHost}nba/players/${playerId}/stats?season=${season}`)
+  fetch(`${API_BASE_URL}api/nba/players/${playerId}/stats?season=${season}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok " + response.statusText);

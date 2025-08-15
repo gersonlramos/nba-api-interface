@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Back button functionality
   backButton.addEventListener("click", function () {
-    window.location.href = "index.html";
+    window.location.href = "../index.html";
   });
 
   // Load teams on page load
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Load teams function
   function loadTeams() {
-    fetch(`${localHost}nba/teams`)
+    fetch(`${API_BASE_URL}api/nba/teams`)
       .then((response) => response.json())
       .then((data) => {
         const teamOptions =
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
     playerSelect.innerHTML = '<option value="">Loading players...</option>';
     playerSelect.disabled = true;
 
-    fetch(`${localHost}nba/teams/${teamId}/players?season=${season}`)
+    fetch(`${API_BASE_URL}api/nba/teams/${teamId}/players?season=${season}`)
       .then((response) => response.json())
       .then((data) => {
         const playerOptions =
@@ -140,7 +140,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Load player stats
   function loadPlayerStats(playerId, season) {
-    return fetch(`${localHost}nba/players/${playerId}/stats?season=${season}`)
+    return fetch(
+      `${API_BASE_URL}api/nba/players/${playerId}/stats?season=${season}`
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to load player stats");
