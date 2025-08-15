@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Information - NBA API</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="theme-color" content="#1d428a" />
+    <meta
+      name="description"
+      content="Detailed NBA team information, statistics, and player roster"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="team-header">
+        <button id="backButton" class="btn btn-secondary">
+          <span>← Back to Teams</span>
+        </button>
+
+        <div id="teamInfo" class="card team-info-card"></div>
+
+        <div class="season-selector">
+          <label for="seasonSelect">Season:</label>
+          <select id="seasonSelect">
+            <option value="2024" selected>2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="stats-section">
+        <h2>Team Statistics</h2>
+        <div id="teamStats" class="stats-grid"></div>
+      </div>
+
+      <div class="players-section">
+        <h2>Team Roster</h2>
+        <div id="playersList" class="players-grid"></div>
+      </div>
+    </div>
+
+    <script src="theme.js"></script>
+    <script src="team.js"></script>
+  </body>
+</html>

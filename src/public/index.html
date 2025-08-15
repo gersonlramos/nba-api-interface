@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NBA API Interface</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <meta name="theme-color" content="#1d428a" />
+    <meta
+      name="description"
+      content="Modern NBA API interface for exploring team statistics and player information"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="hero-section">
+        <div class="logo">
+          <img src="assets/imagens/nba_logo.jpg" alt="NBA Logo" />
+        </div>
+        <h1>NBA API Interface</h1>
+        <p>Explore NBA teams, statistics, and player information</p>
+      </div>
+
+      <div class="card">
+        <form id="nbaForm">
+          <div class="form-group">
+            <label for="teamsComboBox">Select a Team</label>
+            <select id="teamsComboBox" name="teamId">
+              <option value="">Choose your team...</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <span>View Team Details</span>
+          </button>
+        </form>
+
+        <div class="divider">
+          <span>or</span>
+        </div>
+
+        <a href="pages/compare.html" class="btn btn-secondary">
+          <span>⚔️ Compare Players</span>
+        </a>
+      </div>
+
+      <div id="results"></div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Player Comparison - NBA API</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="theme-color" content="#1d428a" />
+    <meta
+      name="description"
+      content="Compare NBA players statistics side by side"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="comparison-header">
+        <button id="backButton" class="btn btn-secondary">
+          <span>← Back to Home</span>
+        </button>
+
+        <h1>⚔️ Player Comparison</h1>
+        <p>Compare two NBA players statistics side by side</p>
+      </div>
+
+      <div class="comparison-setup">
+        <div class="player-selector">
+          <h3>Player 1</h3>
+          <div class="form-group">
+            <label for="season1">Season:</label>
+            <select id="season1">
+              <option value="2023">2023</option>
+              <option value="2022" selected>2022</option>
+              <option value="2021">2021</option>
+              <option value="2020">2020</option>
+              <option value="2019">2019</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="team1">Team:</label>
+            <select id="team1">
+              <option value="">Select team...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="player1">Player:</label>
+            <select id="player1" disabled>
+              <option value="">Select player...</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="vs-divider">
+          <span>VS</span>
+        </div>
+
+        <div class="player-selector">
+          <h3>Player 2</h3>
+          <div class="form-group">
+            <label for="season2">Season:</label>
+            <select id="season2">
+              <option value="2023">2023</option>
+              <option value="2022" selected>2022</option>
+              <option value="2021">2021</option>
+              <option value="2020">2020</option>
+              <option value="2019">2019</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="team2">Team:</label>
+            <select id="team2">
+              <option value="">Select team...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="player2">Player:</label>
+            <select id="player2" disabled>
+              <option value="">Select player...</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="compare-button-container">
+        <button id="compareButton" class="btn btn-primary" disabled>
+          <span>Compare Players</span>
+        </button>
+      </div>
+
+      <div
+        id="comparisonResults"
+        class="comparison-results"
+        style="display: none"
+      >
+        <h2>Comparison Results</h2>
+        <div class="players-comparison">
+          <div id="player1Stats" class="player-comparison-card">
+            <div class="loading">Loading player 1 stats...</div>
+          </div>
+          <div id="player2Stats" class="player-comparison-card">
+            <div class="loading">Loading player 2 stats...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="theme.js"></script>
+    <script src="compare.js"></script>
+  </body>
+</html>

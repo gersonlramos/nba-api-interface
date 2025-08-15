@@ -4,11 +4,14 @@
   "description": "API da NBA em Node.js",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server/index.js",
+    "dev": "node server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "axios": "^1.7.3",
     "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
     "express": "^4.19.2"
   }
 }
