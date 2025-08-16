@@ -79,7 +79,9 @@ src/
 
    - Veja a demonstração abaixo para uma visão geral de como usar a aplicação.
 
-   ![Demonstração da Aplicação](src/imagens/como_usar_a_api.gif)
+<div align="center">
+   <img src="src/public/assets/imagens/como_usar_a_api.gif" alt="NBA API Demo" width="800">
+</div>
 
 ## Etapas do Projeto
 
